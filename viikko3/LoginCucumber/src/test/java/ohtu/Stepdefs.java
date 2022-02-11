@@ -40,9 +40,27 @@ public class Stepdefs {
        app.run();
     }    
     
+    @Given("^command new is selected$")
+    public void commandNewUserSelected() throws Throwable {
+        inputLines.add("new");
+    }
+
+    @Given("user {string} with password {string} is created")
+    public void userIsCreated(String username, String password) throws Throwable {
+        inputLines.add("new");
+        inputLines.add(username);
+        inputLines.add(password);
+        
+        io = new StubIO(inputLines); 
+        app = new App(io, auth);
+        app.run();
+    }
+
     @Then("system will respond with {string}")
     public void systemWillRespondWith(String expectedOutput) {
         assertTrue(io.getPrints().contains(expectedOutput));
     }
+
+    
     
 }
