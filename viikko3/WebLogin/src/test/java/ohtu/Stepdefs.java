@@ -48,6 +48,11 @@ public class Stepdefs {
     public void usernameAndPasswordAreGiven(String username, String password) throws Throwable {
         logInWith(username, password);
     }   
+
+    @When("incorrect username {string} and incorrect password {string} are given")
+    public void nonExistantUserCantLogin(String username, String password) throws Throwable {
+        logInWith(username, password);
+    }   
     
     @Then("system will respond {string}")
     public void systemWillRespond(String pageContent) throws Throwable {
