@@ -28,6 +28,9 @@ public class Ostoskori {
     public int hinta() {
         // kertoo korissa olevien tuotteiden yhteenlasketun hinnan
         int combinedPrice = 0;
+        for(Ostos o: shoppingList) {
+            combinedPrice+= o.hinta();
+        }
  
         return combinedPrice;
     }
