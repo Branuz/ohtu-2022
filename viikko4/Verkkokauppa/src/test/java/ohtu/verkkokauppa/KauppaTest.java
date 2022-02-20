@@ -5,6 +5,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+import com.google.common.base.Verify;
+
 public class KauppaTest {
     Pankki pankki;
     Viitegeneraattori viite;
@@ -93,5 +95,47 @@ public class KauppaTest {
         k.tilimaksu("mikko", "111222");
         verify(pankki).tilisiirto(eq("mikko"), eq(150), eq("111222"), anyString(),eq(5));
 
+    }
+
+    @Test
+    public void asiointiNollaaOstokset() {
+        when(viite.uusi()).thenReturn(150);
+        k.aloitaAsiointi();
+        k.lisaaKoriin(1);
+        k.tilimaksu("mikko", "111222");
+        verify(pankki).tilisiirto(eq("mikko"), eq(150), eq("111222"), anyString(),eq(5));
+
+        k.aloitaAsiointi();
+        k.lisaaKoriin(1);
+        k.tilimaksu("mikko", "222111");
+        verify(pankki).tilisiirto(eq("mikko"), eq(150), eq("222111"), anyString(),eq(5));
+    }
+
+    @Test
+    public void uusiViiteTapahtumissa() {
+        k.aloitaAsiointi();
+        k.lisaaKoriin(1);
+        k.tilimaksu("mikko", "1234");
+        verify(viite, times(1)).uusi();
+
+        k.aloitaAsiointi();
+        k.lisaaKoriin(1);
+        k.tilimaksu("jarkko", "4321");
+        verify(viite, times(2)).uusi();
+
+        k.aloitaAsiointi();
+        k.lisaaKoriin(1);
+        k.lisaaKoriin(1);
+        k.tilimaksu("jorma", "2233");
+        verify(viite, times(3)).uusi();
+
+    }
+
+    @Test
+    public void koristaPoistaminenToimii() {
+        k.aloitaAsiointi();
+        k.lisaaKoriin(1);
+        k.poistaKorista(1);
+        verify(varasto).palautaVarastoon(new Tuote(1, "maito", 5));
     }
 }
