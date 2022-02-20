@@ -149,4 +149,17 @@ public class OstoskoriTest {
         assertEquals(0, kori.tavaroitaKorissa());
         assertEquals(0, kori.ostokset().size());
     }
+
+    //step 15
+    @Test
+    public void korinTyhjennysOnnistuu() {
+        Tuote maito = new Tuote("maito", 3);
+        kori.lisaaTuote(maito);
+        kori.tyhjenna();
+
+        assertEquals(0, kori.hinta());
+        assertEquals(0, kori.tavaroitaKorissa());
+        assertEquals(0, kori.ostokset().size());
+
+    }
 }
