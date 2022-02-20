@@ -95,5 +95,15 @@ public class OstoskoriTest {
  
         assertEquals("maito", ostos.tuotteenNimi());
         assertEquals(1, ostos.lukumaara());
-    } 
+    }
+    
+    // step 10
+    @Test
+    public void kahdenTuotteenJälkeenKorissaKaksiTuotettaMäärältä() {
+        Tuote maito = new Tuote("maito", 3);
+        Tuote peruna = new Tuote("peruna", 2);
+        kori.lisaaTuote(maito);
+        kori.lisaaTuote(peruna);
+        assertEquals(2, kori.ostokset().size());
+    }
 }
