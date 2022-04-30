@@ -1,0 +1,5 @@
+Sprinttien päätteeksi pidimme retrospektiivit joissa käytimme glad, sad, mad tyylistä retrospektiivi menetelmää. Retron aikana avasimme miro.com:issa taulun jossa teimme glad, sad, mad vaihtehtoisen taulukon. Tähän taulukkoon noin 5 minuutin ajan jokainen meistä kirjoitti omia ajatuksia sprintistä jokaiseen kohtaan taulukosta minkä jälkeen kävimme vuorotellen lävitse omat lappumme ja hiukan keskustelimme niistä. 
+
+Varsinkin toisen sprintin aikana huomasimme että monien mielestä yksi ongelma oli se että olimme puskeneet rikkinäistä buildia githubbiin ilman testien korjaamista. Tämän huomion avulla seuraavassa sprintissä saimme hyvin ongelman korjattua ja CI putki olikin lähes koko sprintin ajan vihreänä punaisen sijaan. 
+
+Jokaisella viikolla positiivisena havaintona oli aina vahvasti se että kommunikaatio ja yhteistyö pelasi hyvin. Jokainen hoiti sovitut asiat ja merkkasi ne backlogiin mikä puolestaan piti huolen siitä ettei kaksi henkilöä missään kohtaa eksynyt työstämään samaa asiaa vaan jokainen oli perillä missä mennään.
